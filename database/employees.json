@@ -1,0 +1,44 @@
+[
+   {
+      "id": 1,
+      "name": "nameEmployee3",
+      "job": "jobEmployee3",
+      "age": 21,
+      "city": "cityEmployee33"
+   },
+   {
+      "id": 3,
+      "name": "barune",
+      "job": "jobnew",
+      "age": "21",
+      "city": "rame"
+   },
+   {
+      "id": 4,
+      "name": "baru banget",
+      "job": "aere",
+      "age": "12",
+      "city": "amama"
+   },
+   {
+      "id": 7,
+      "name": "aa",
+      "job": "aa",
+      "age": "12",
+      "city": "aaa"
+   },
+   {
+      "id": 11,
+      "name": "Nama",
+      "job": "Pekerjaan",
+      "age": 21,
+      "city": "Kota"
+   },
+   {
+      "id": 13,
+      "name": "Ofie",
+      "job": "Fresh",
+      "age": 12,
+      "city": "Medan"
+   }
+]

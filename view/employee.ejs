@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halaman Employee</title>
+    <link rel="stylesheet" href="./styles/style.css" type="text/css" />
+    <!-- <style>
+      body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+      }
+      .utama {
+        padding: 1rem;
+        color: aliceblue;
+        font-size: 1.2rem;
+      }
+      ul {
+        list-style: none;
+      }
+      ul li {
+        margin-bottom: 1rem;
+      }
+      a {
+        color: mediumslateblue;
+        text-decoration: none;
+      }
+      a:hover {
+        color: yellow;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 1.5rem;
+      }
+      table td {
+        /* border: 0.01rem solid lavender; */
+        padding: 0.3rem;
+      }
+      table tr:nth-child(even) {
+        background-color: rgb(24, 23, 23);
+      }
+      table tr:hover {
+        background-color: rgb(37, 63, 63);
+      }
+      table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background-color: rgb(49, 22, 22);
+      }
+      form {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        background-color: rgb(49, 22, 22);
+      }
+      #formTambahNama {
+        font-weight: 900;
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+    </style> -->
+    <script type="text/javascript">
+      function hideShow(id, status) {
+        let x = document.getElementById("formTambah");
+        x.style.display === "none"
+          ? (x.style.display = "block")
+          : (x.style.display = "none");
+        if (status === "create") {
+          document.getElementById("formTambahNama").innerHTML =
+            "Tambah data baru";
+          document.getElementById("formTambah").action = "/employees/create";
+        } else if (status === "edit") {
+          document.getElementById("formTambahNama").innerHTML =
+            "Edit data id " + id;
+          document.getElementById("formTambah").action =
+            "/employees/update/" + id;
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-slate-800 flex justify-center">
+    <div class="mt-8">
+      <a
+        class="text-fuchsia-300 bg-slate-900 rounded-md hover:bg-slate-600 px-2 py-1"
+        href="/"
+        >Back to home page</a
+      >
+      <h1
+        class="flex justify-center text-5xl font-extrabold text-fuchsia-100 py-5"
+      >
+        Data Employee
+      </h1>
+      <button
+        class="text-fuchsia-300 bg-slate-900 rounded-md hover:bg-slate-600 px-2 py-1"
+        onclick="hideShow('','create')"
+      >
+        Tambah Data
+      </button>
+      <form
+        class="block max-w-sm rounded-lg text-fuchsia-100 bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
+        id="formTambah"
+        action=""
+        method="post"
+        style="display: none"
+      >
+        <div class="text-center mb-3 mt-1 pb-1 text-xl font-semibold" id="formTambahNama">
+          <label></label>
+        </div>
+
+        <div class="relative mb-4" data-te-input-wrapper-init>
+          <input
+            type="text"
+            class="peer block min-h-[auto] w-full rounded bg-slate-500 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-1000"
+            name="name"
+            id="name"
+            placeholder="Nama" />
+        </div>
+        <div class="relative mb-4" data-te-input-wrapper-init>
+          <input
+            type="text"
+            class="peer block min-h-[auto] w-full rounded bg-slate-500 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-1000"
+            name="job"
+            id="job"
+            placeholder="Pekerjaan" />
+        </div>
+        <div class="relative mb-4" data-te-input-wrapper-init>
+          <input
+            type="text"
+            class="peer block min-h-[auto] w-full rounded bg-slate-500 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-100"
+            name="age"
+            placeholder="Usia" />
+        </div>
+        <div class="relative mb-4" data-te-input-wrapper-init>
+          <input
+            type="text"
+            class="peer block min-h-[auto] w-full rounded bg-slate-500 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-1000"
+            name="city"
+            placeholder="Kota Tinggal" />
+        </div>
+        <button class="mb-3 inline-block min-w-10 rounded px-6 pb-2 bg-slate-900 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]" type="submit">Submit</button>
+      </form>
+
+      <div class="flex flex-col">
+        <table class="min-w-full text-sm font-light text-fuchsia-100">
+          <thead
+            class="border-b text-center font-medium dark:border-neutral-500"
+          >
+            <tr class="text-lg">
+              <th scope="col" class="px-6 py-4">Id</th>
+              <th scope="col" class="px-6 py-4">Nama</th>
+              <th scope="col" class="px-6 py-4">Pekerjaan</th>
+              <th scope="col" class="px-6 py-4">Usia</th>
+              <th scope="col" class="px-6 py-4">Kota Tinggal</th>
+              <th scope="col" class="px-6 py-4">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% result.forEach((data) => {%>
+            <tr class="border-b dark:border-neutral-500">
+              <td class="whitespace-nowrap px-6 py-4"><%= data.id %></td>
+              <td class="whitespace-nowrap px-6 py-4"><%= data.name %></td>
+              <td class="whitespace-nowrap px-6 py-4"><%= data.job %></td>
+              <td class="whitespace-nowrap px-6 py-4"><%= data.age %></td>
+              <td class="whitespace-nowrap px-6 py-4"><%= data.city %></td>
+              <td class="whitespace-nowrap px-6 py-4">
+                <button
+                  class="bg-slate-900 rounded-md hover:bg-slate-600 px-2 py-1"
+                  onclick="hideShow('<%= data.id %>','edit')"
+                >
+                  Ubah
+                </button>
+                <a
+                  class="bg-red-900 rounded-md hover:bg-red-600 px-2 py-1"
+                  href="/employees/delete/<%= data.id %>"
+                  >Hapus</a
+                >
+              </td>
+            </tr>
+            <%}) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

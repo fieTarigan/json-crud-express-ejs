@@ -1,0 +1,23 @@
+[
+   {
+      "id": 1,
+      "name": "nameEmployers1",
+      "type": "typeEmployers1",
+      "total_employee": 20,
+      "city": "cityEmployers1"
+   },
+   {
+      "id": 2,
+      "name": "nameEmployersBaru",
+      "type": "typeEmployersBar",
+      "total_employee": 20,
+      "city": "cityEmployersBaru"
+   },
+   {
+      "id": 3,
+      "name": "Twitter",
+      "type": "socmed",
+      "total_employee": 500,
+      "city": "chicago"
+   }
+]

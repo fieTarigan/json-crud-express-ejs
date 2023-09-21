@@ -1,0 +1,16 @@
+[
+   {
+      "id": 1,
+      "name": "nameJob1",
+      "category": "categoryJob1",
+      "max_salary": 20,
+      "min_salary": 10
+   },
+   {
+      "id": 2,
+      "name": "nameJobBaru",
+      "category": "categoryJobBaru",
+      "max_salary": 20,
+      "min_salary": 10
+   }
+]

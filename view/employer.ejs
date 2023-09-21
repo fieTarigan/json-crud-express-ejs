@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halaman Employer</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+      }
+      .utama {
+        padding: 1rem;
+        color: aliceblue;
+        font-size: 1.2rem;
+      }
+      ul {
+        list-style: none;
+      }
+      ul li {
+        margin-bottom: 1rem;
+      }
+      a {
+        color: mediumslateblue;
+        text-decoration: none;
+      }
+      a:hover {
+        color: yellow;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 1.5rem;
+      }
+      table td {
+        /* border: 0.01rem solid lavender; */
+        padding: 0.3rem;
+      }
+      table tr:nth-child(even) {
+        background-color: rgb(24, 23, 23);
+      }
+      table tr:hover {
+        background-color: rgb(37, 63, 63);
+      }
+      table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background-color: rgb(49, 22, 22);
+      }
+      form {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        background-color: rgb(49, 22, 22);
+      }
+      #formTambahNama {
+        font-weight: 900;
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+    </style>
+    <script type="text/javascript">
+      function hideShow(id, status) {
+        let x = document.getElementById("formTambah");
+        x.style.display === "none"
+          ? (x.style.display = "block")
+          : (x.style.display = "none");
+        if (status === "create") {
+          document.getElementById("formTambahNama").innerHTML =
+            "Tambah data baru";
+          document.getElementById("formTambah").action = "/employers/create";
+        } else if (status === "edit") {
+          document.getElementById("formTambahNama").innerHTML =
+            "Edit data id " + id;
+          document.getElementById("formTambah").action =
+            "/employers/update/" + id;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="utama">
+      <a href="/">Back to home page</a>
+      <h1>Data Employer</h1>
+      <button onclick="hideShow('','create')">Tambah Data</button>
+      <form id="formTambah" action="" method="post" style="display: none">
+        <div id="formTambahNama">
+          <label></label>
+        </div>
+        <label>Nama Perusahaan</label>
+        <input type="text" name="name" /> <br/>
+        <label>Tipe Perusahaan</label>
+        <input type="text" name="type" /> <br/>
+        <label>Banyak Pegawai</label>
+        <input type="text" name="total_employee" /> <br/>
+        <label>Kota Tempat Perusahaan</label>
+        <input type="text" name="city" /> <br/>
+        <button type="submit">Submit</button>
+      </form>
+      <table>
+        <tr>
+          <th>Id</th>
+          <th>Nama Perusahaan</th>
+          <th>Tipe Perusahaan</th>
+          <th>Banyak Pegawai</th>
+          <th>Kota Tempat Perusahaan</th>
+          <th>Aksi</th>
+        </tr>
+        <% result.forEach((data) => {%>
+        <tr>
+          <td><%= data.id %></td>
+          <td><%= data.name %></td>
+          <td><%= data.type %></td>
+          <td><%= data.total_employee %></td>
+          <td><%= data.city %></td>
+          <td>
+            <button onclick="hideShow('<%= data.id %>','edit')">Ubah</button>
+            <a href="/employers/delete/<%= data.id %>">Hapus</a>
+          </td>
+        </tr>
+        <%}) %>
+      </table>
+    </div>
+  </body>
+</html>
